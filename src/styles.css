@@ -137,3 +137,7 @@ ul {
   float: left;
   text-align: center;
 }
+.icon {
+  width: 70px;
+  height: 70px;
+}
