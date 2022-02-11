@@ -1,25 +1,13 @@
 body {
   font-family: "Poppins", sans-serif;
-  background: rgb(167, 248, 248);
-  max-width: 900px;
+  background: rgb(232, 227, 245);
+  width: 100%;
 }
-
 h1 {
-  text-align: center;
-  margin-top: 10px;
+  text-align: left;
+  margin-top: 20px;
   text-transform: capitalize;
-  text-decoration: double;
-}
-h2 {
-  font-size: 62px;
-}
-h4 {
-  font-size: 20px;
-}
-
-p {
-  text-align: center;
-  margin-bottom: 15px;
+  margin-left: 20px;
 }
 ul {
   list-style: none;
@@ -27,95 +15,125 @@ ul {
   display: block;
   padding: 0;
 }
-.btn-primary {
-  padding: 5px 20px;
-  margin: 0 5px;
-  transition: ease-in-out 200ms;
+.weather-app {
+  width: 750px;
+  margin: 0;
 }
-.btn-primary:hover {
+.city-search {
+  padding: 0;
+  width: 750px;
+}
+
+.d-flex {
+  width: 60%;
+}
+.container-fluid.search {
+  justify-content: start;
+  padding: 0;
+}
+.btn-go {
+  border: #fa3d76 solid 2px;
+  border-radius: 5px;
+  background-color: #f65282;
+  color: white;
+  padding: 5px 25px;
+  margin: 0 5px;
+  box-shadow: 1px 3px 4px rgb(158, 156, 156);
+}
+.btn-go:hover {
   opacity: 0.8;
-  background-color: rgb(0, 171, 250);
+  color: white;
+  border: #fa3d76 solid 2px;
+  transition: ease-in-out 250ms;
 }
-.btn-success {
-  padding: 5px 20px;
+.btn-pin {
+  padding: 5px 16px;
   margin: 0 5px;
-  color: rgb(251, 255, 0);
+  border: rgb(47, 233, 214) solid 2px;
+  background-color: turquoise;
   transition: ease-in-out 200ms;
+  box-shadow: 1px 3px 4px rgb(158, 156, 156);
+  border-radius: 5px;
 }
-.btn-success:hover {
-  opacity: 0.9;
-  background: rgb(189, 4, 4);
+.btn-pin:hover {
+  opacity: 0.7;
+  background: turquoise;
+  border: turquoise solid 2px;
+}
+.base {
+  margin: 0;
+  border: solid rgb(90, 90, 90);
+  background: white;
+  width: 750px;
+  height: 500px;
 }
 .date {
   margin: 0 auto;
+  margin-left: 20px;
   padding: 0;
-  text-align: center;
+  text-align: left;
+  color: #f65282;
+}
+.pink {
+  color: #f65282;
+}
+.date-description {
+  color: #a9a6c2;
+  margin-left: 20px;
+}
+.attributes {
+  display: block;
+  margin-top: 10px;
+  margin-left: 130px;
+  text-align: left;
+  color: #a9a6c2;
 }
 .temp {
   font-size: 62px;
 }
 .temp-2 {
   font-size: 20px;
-  margin-left: 15px;
+  text-align: right;
+  margin-right: 40px;
 }
-.weather-app {
-  max-width: 950px;
-  margin: 0 auto;
-}
-.container {
-  margin: 0 auto;
-  max-width: 800px;
-}
-
-.base {
-  margin: 0 auto;
-  border: solid rgb(255, 217, 0);
-  background: white;
-  max-width: 800px;
-  max-height: 500px;
-}
-
-.city-search {
+.temp-container {
   display: block;
   margin: 0 auto;
-  position: relative;
-  padding: 0;
-  max-width: 950px;
-}
-.current {
-  display: block;
-  margin-left: 50px;
+  width: 50%;
   padding-top: 30px;
+  justify-content: right;
+  margin-right: 20px;
 }
-.attributes {
-  display: block;
-  position: relative;
-  left: 480px;
-  top: -160px;
-  text-align: left;
+.main-temp {
+  text-align: right;
+  margin-left: 20px;
+}
+.units {
+  margin-right: 20px;
+}
+.forcast-card {
+  margin-top: 100px;
 }
 .img-card {
   display: block;
   margin: 0 auto;
   position: absolute;
-  margin-left: 280px;
-  top: 150px;
-  width: 85%;
+  top: 180px;
+  left: 200px;
+  margin-left: 250px;
+  width: 150px;
 }
 .img {
   border: solid turquoise;
+  width: 90%;
 }
-.forcast {
-  position: relative;
-  display: block;
-  margin: 0;
+.box {
+  width: 110px;
+  height: 120px;
   border: solid turquoise;
-  font-size: 12px;
-}
-.forcast-card {
-  display: block;
-  position: relative;
-  top: -100px;
-  margin: 0;
-  max-width: 780px;
+  padding: 5px;
+  margin: 0 5px;
+  background: white;
+  float: left;
+  text-align: center;
 }
