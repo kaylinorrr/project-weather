@@ -31,6 +31,7 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", searchCity);
 
 function showTemperature(response) {
+  console.log(response);
   let temperature = Math.round(response.data.main.temp);
   let mainTemp = document.querySelector("#main-temp");
   mainTemp.innerHTML = `${temperature}`;
@@ -38,9 +39,15 @@ function showTemperature(response) {
   let max = Math.round(response.data.main.temp_max);
   let minMaxTemp = document.querySelector("#temp-2");
   minMaxTemp.innerHTML = `${max}º/${min}º`;
-  let description = response.data.weather.value;
+  let description = response.data.weather[0].description;
   let currentCondition = document.querySelector("#weather-description");
   currentCondition.innerHTML = `${description}`;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function getTemperature() {
@@ -63,9 +70,14 @@ function showCurrentPosition(response) {
   let max = Math.round(response.data.main.temp_max);
   let minMaxTemp = document.querySelector("#temp-2");
   minMaxTemp.innerHTML = `${max}º/${min}º`;
-  let description = response.data.weather.value;
+  let description = response.data.weather[0].description;
   let currentCondition = document.querySelector("#weather-description");
   currentCondition.innerHTML = `${description}`;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 function retrievePosition(position) {
   let apiKey = "9365a3e4de9e668a1c2509dfa8abe0d4";
