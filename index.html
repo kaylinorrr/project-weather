@@ -4,12 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;700&family=Poppins:wght@300;400;600;700&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script
       src="https://kit.fontawesome.com/ba42c3ae33.js"
@@ -26,15 +23,13 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
-        <div class="card border-primary mb-3 p-0 mt-1">
-          <div class="row">
-            <div class="col-10">
+      <div class="weather-app">        
+          <div class="row align-items-start">
+            <div class="col p-0">
               <div class="card-body city-search">
                 <nav class="navbar navbar-light">
                   <div class="container-fluid search">
                     <a class="navbar-brand"></a>
-                    <div class="col-8">
                     <form class="d-flex" id="search-form">
                       <input
                         class="form-control me-2"
@@ -42,149 +37,105 @@
                         placeholder="search city"
                         id="search-input"
                       />
-                      <button class="btn btn-primary" type="submit" id="submit-button">go!</button>
                       <button
-                          class="btn btn-success"
-                          type="submit"
-                          id="button-addon1"
-                        >
-                          📍
-                        </button>
+                        class="btn btn-go"
+                        type="submit"
+                        id="submit-button"
+                      >
+                        go!
+                      </button>
+                      <button
+                        class="btn btn-pin"
+                        type="submit"
+                        id="button-addon1"
+                      >
+                        📍
+                      </button>
                     </form>
-                    </div>
                   </div>
                 </nav>
               </div>
-            </div>
+            </div>         
+        </div>
+      </div>
+      <div class="container base">
+        <div class="row">
+          <div class="col-6">
+            <h1><u>los angeles</u></h1>
+            <ul>
+              <li class="date-description" id="weather-description">cloudy</li>
+              <li class="date" id="date"></li>
+            </ul>
           </div>
-        </div>
-        </div>
-        </div>
-        <div class="container base">
-          <div class="container">
-            <div class="card border-0">
-              <div class="card-body location">
-                <div class="row">
-                  <div class="col">
-                    <h1><u>los angeles</u></h1>
-                    <ul class="center"> 
-                      <li class="date" id="weather-description">cloudy</li>
-                      <li class="date" id="date"></li>
-                    </ul>
-                    <div class="card border-0">
-                      <div class="card-body current">
-                        <div class="row">
-                          <div class="col">
-                            <ul>
-                            <li><span class="temp" id="main-temp">59</span>
-                            <span class="units" id="units">
-                              <a href="#" id="fahrenheit-link">ºF</a> |
-                              <a href="#" id="celcius-link">ºC</a>
-                            </span>
-                            </li>
-                            <li><span class="temp-2" id="temp-2">61º/46º</span></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row img-card">
-                  <div class="col-5">
-                    <div class="card w-50">
-                      <img src="images/weather cloudy.png" class="img" />
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col">
-                    <div class="card border-0" style="width: 12rem">
-                      <div class="card-body attributes">
-                        <p class="card-text"></p>
-                        <ul>
-                          <li>humidity: 57%</li>
-                          <li>precipitation: 10%</li>
-                          <li>sunrise: 6:53AM</li>
-                          <li>sunset: 4:46PM</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
+          <div class="row">
+            <div class="col-6">
+              <ul class="attributes">
+                <li>humidity: <span class="pink">52%</span></li>
+                <li>precipitation: <span class="pink">10%</span></li>
+                <li>sunrise: <span class="pink">6:53AM</span></li>
+                <li>sunset: <span class="pink">4:46PM</span></li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <div class="temp-container.d-flex.justify-content-end">
+                <ul>
+                  <li class="main-temp">
+                    <span class="temp" id="main-temp">59</span>
+                    <span class="units" id="units">
+                      <a href="#" id="fahrenheit-link">ºF</a> |
+                      <a href="#" id="celcius-link">ºC</a>
+                    </span>
+                  </li>
+                  <li class="temp-2" id="temp-2">61º/46º</li>
+                </ul>
+                <div class="img-card">
+                  <img src="images/weather cloudy.png" class="img" />
                 </div>
               </div>
             </div>
           </div>
-          <div class="container forcast-card">
-            <div class="row">
-              <div class="col">
-                <div
-                  class="card text-center card border-info mb-3"
-                  style="width: 8rem"
-                >
-                  <div class="card-body forcast">
-                    <h5 class="card-title">tues</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">59º/46º</h6>
-                    <p class="card-text">
-                      <i class="fas fa-cloud-showers-heavy"></i>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div
-                  class="card text-center card border-info mb-3"
-                  style="width: 8rem"
-                >
-                  <div class="card-body forcast">
-                    <h5 class="card-title">wed</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">55º/41º</h6>
-                    <p class="card-text"><i class="fas fa-cloud-sun"></i></p>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div
-                  class="card text-center card border-info mb-3"
-                  style="width: 8rem"
-                >
-                  <div class="card-body forcast">
-                    <h5 class="card-title">thurs</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">55º/41º</h6>
-                    <p class="card-text"><i class="fas fa-cloud-sun"></i></p>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div
-                  class="card text-center card border-info mb-3"
-                  style="width: 8rem"
-                >
-                  <div class="card-body forcast">
-                    <h5 class="card-title">fri</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">61º/45º</h6>
-                    <p class="card-text"><i class="fas fa-cloud-sun"></i></p>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div
-                  class="card text-center card border-info mb-3"
-                  style="width: 8rem"
-                >
-                  <div class="card-body forcast">
-                    <h5 class="card-title">sat</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">61º/41º</h6>
-                    <p class="card-text"><i class="fas fa-sun"></i></p>
+          <div class="forcast-card row">
+            <div class="col">
+              <div class="box">
+                <div class="forcast-day">Mon</div>
+                <div class="icon">
+                  <div class="forcast">
                   </div>
                 </div>
               </div>
             </div>
-            <br>
-            <a href="https://github.com/kaylinorrr/project-weather">Open-Source Code</a> by Kaylin Orr
+            <div class="col">
+              <div class="box">
+                <div class="forcast-day">Tues</div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="box">
+                <div class="forcast-day">Wed</div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="box">
+                <div class="forcast-day">Thurs</div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="box">
+                <div class="forcast-day">Fri</div>
+              </div>
+            </div>
           </div>
         </div>
+        </div>       
+        <footer>
+          <a href="https://github.com/kaylinorrr/project-weather"
+          >Open-Source Code</a
+        >
+        by Kaylin Orr
+        </footer>
+      </div>
     </div>
     <script src="src/index.js"></script>
   </body>
 </html>
+
