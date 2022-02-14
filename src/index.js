@@ -48,6 +48,9 @@ function showTemperature(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  let humidity = response.data.main.humidity;
+  let humidElement = document.querySelector("#humidity");
+  humidElement.innerHTML = `${humidity}`;
 }
 
 function getTemperature() {
@@ -78,6 +81,9 @@ function showCurrentPosition(response) {
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  let humidity = response.data.main.humidity;
+  let humidElement = document.querySelector("#humidity");
+  humidElement.innerHTML = `${humidity}`;
 }
 function retrievePosition(position) {
   let apiKey = "9365a3e4de9e668a1c2509dfa8abe0d4";
@@ -87,8 +93,24 @@ function retrievePosition(position) {
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}${unit}`;
   axios.get(url).then(showCurrentPosition);
 }
+
 function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
 let positionButton = document.querySelector("#button-addon1");
 positionButton.addEventListener("click", getCurrentPosition);
+
+function showForcast(response) {
+  console.log(response);
+}
+
+function getForcast() {
+  let city = document.querySelector("#search-input").value;
+  let apiKey = "9365a3e4de9e668a1c2509dfa8abe0d4";
+  let unit = "&units=imperial";
+  let url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}${unit}`;
+  axios.get(url).then(showForcast);
+}
+
+let searchSubmit = document.querySelector("#search-form");
+searchSubmit.addEventListener("submit", getForcast);
