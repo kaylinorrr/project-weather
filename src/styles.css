@@ -5,9 +5,9 @@ body {
 }
 h1 {
   text-align: left;
-  margin-top: 20px;
+  margin-top: 30px;
   text-transform: capitalize;
-  margin-left: 20px;
+  margin-left: 40px;
 }
 ul {
   list-style: none;
@@ -23,7 +23,6 @@ ul {
   padding: 0;
   width: 750px;
 }
-
 .d-flex {
   width: 60%;
 }
@@ -62,14 +61,15 @@ ul {
 }
 .base {
   margin: 0;
-  border: solid rgb(90, 90, 90);
+  border: double rgb(189, 182, 182) 5px;
+  border-radius: 25px;
   background: white;
   width: 750px;
   height: 500px;
 }
 .date {
   margin: 0 auto;
-  margin-left: 20px;
+  margin-left: 40px;
   padding: 0;
   text-align: left;
   color: #f65282;
@@ -79,17 +79,18 @@ ul {
 }
 .date-description {
   color: #a9a6c2;
-  margin-left: 20px;
+  margin-left: 40px;
 }
 .attributes {
   display: block;
   margin-top: 10px;
-  margin-left: 130px;
+  margin-left: 135px;
   text-align: left;
   color: #a9a6c2;
 }
 .temp {
   font-size: 62px;
+  font-weight: 500;
 }
 .temp-2 {
   font-size: 20px;
@@ -100,38 +101,40 @@ ul {
   display: block;
   margin: 0 auto;
   width: 50%;
-  padding-top: 30px;
   justify-content: right;
   margin-right: 20px;
 }
 .main-temp {
   text-align: right;
   margin-left: 20px;
+  margin-top: -30px;
 }
 .units {
   margin-right: 20px;
 }
 .forcast-card {
   margin-top: 100px;
+  margin-left: 5px;
+  padding: 0;
 }
 .img-card {
   display: block;
   margin: 0 auto;
   position: absolute;
-  top: 180px;
-  left: 200px;
+  top: 90px;
+  left: 170px;
   margin-left: 250px;
-  width: 150px;
+  width: 200px;
 }
 .img {
-  border: solid turquoise;
-  width: 90%;
+  width: 190px;
+  height: 190px;
 }
 .box {
   width: 110px;
-  height: 120px;
+  height: 125px;
   border: solid turquoise;
-  padding: 5px;
+  padding: 1px;
   margin: 0 5px;
   background: white;
   float: left;

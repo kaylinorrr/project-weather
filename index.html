@@ -70,7 +70,7 @@
           <div class="row">
             <div class="col-6">
               <ul class="attributes">
-                <li>humidity: <span class="pink">52%</span></li>
+                <li>humidity: <span class="pink" id="humidity">52</span>%</li>
                 <li>precipitation: <span class="pink">10%</span></li>
                 <li>sunrise: <span class="pink">6:53AM</span></li>
                 <li>sunset: <span class="pink">4:46PM</span></li>
@@ -86,7 +86,7 @@
                       <a href="#" id="celcius-link">ºC</a>
                     </span>
                   </li>
-                  <li class="temp-2" id="temp-2">61º/46º</li>
+                  <li class="temp-2" id="temp-2"> <strong>61º</strong>/46º</li>
                 </ul>
                 <div class="img-card">
                   <img src="http://openweathermap.org/img/wn/10d@2x.png" alt=".." class="img" id="icon" />
@@ -100,6 +100,8 @@
                 <div class="forcast-day">Mon</div>
                     <img src="http://openweathermap.org/img/wn/01d@2x.png" class="icon" alt=".." id="icon" />
                 <div class="forcast">
+                  <span class="daily-high" id="day-high-1"><strong>61º</strong></span>
+                  <span class="daily-low" id="day-low-1">/46º</span>
                   </div>
               </div>
             </div>
@@ -107,24 +109,40 @@
               <div class="box">
                 <div class="forcast-day">Tues</div>               
                   <img src="http://openweathermap.org/img/wn/10d@2x.png" class="icon" alt=".." id="icon" />               
-              </div>
+                <div class="forcast">
+                   <span class="daily-high" id="day-high-1"><strong>61º</strong></span>
+                   <span class="daily-low" id="day-low-1">/46º</span>
+                </div>
+                </div>
             </div>
             <div class="col">
               <div class="box">
                 <div class="forcast-day">Wed</div>
                   <img src="http://openweathermap.org/img/wn/02d@2x.png" class="icon" alt=".." id="icon" />
+                <div class="forcast">
+                   <span class="daily-high" id="day-high-1"><strong>61º</strong></span>
+                   <span class="daily-low" id="day-low-1">/46º</span>
+                </div>  
               </div>
             </div>
             <div class="col">
               <div class="box">
                 <div class="forcast-day">Thurs</div>
                   <img src="http://openweathermap.org/img/wn/11n@2x.png" class="icon" alt=".." id="icon" />
+                  <div class="forcast">
+                     <span class="daily-high" id="day-high-1"><strong>61º</strong></span>
+                   <span class="daily-low" id="day-low-1">/46º</span>
+                  </div>
               </div>
             </div>
             <div class="col">
               <div class="box">
                 <div class="forcast-day">Fri</div>
                   <img src="http://openweathermap.org/img/wn/10d@2x.png" class="icon" alt=".." id="icon" />
+                  <div class="forcast">
+                     <span class="daily-high" id="day-high-1"><strong>61º</strong></span>
+                     <span class="daily-low" id="day-low-1">/46º</span>
+                  </div>
               </div>
             </div>
           </div>
