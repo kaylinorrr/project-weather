@@ -144,3 +144,11 @@ ul {
   width: 70px;
   height: 70px;
 }
+.active {
+  text-decoration: none;
+  color: black;
+  cursor: default;
+}
+.active:hover {
+  text-decoration: none;
+}
