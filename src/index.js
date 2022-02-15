@@ -25,6 +25,15 @@ function searchCity(event) {
   h1 = document.querySelector("h1");
   h1.innerHTML = `${searchInput.value}`;
 }
+function getTemperature() {
+  let city = document.querySelector("#search-input").value;
+  let apiKey = "9365a3e4de9e668a1c2509dfa8abe0d4";
+  let unit = "&units=imperial";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}${unit}`;
+  axios.get(apiUrl).then(showTemperature);
+}
+let button = document.querySelector("#search-form");
+button.addEventListener("submit", getTemperature);
 
 function showTemperature(response) {
   console.log(response);
@@ -52,16 +61,6 @@ function showTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
   humidElement.innerHTML = `${humidity}`;
 }
-
-function getTemperature() {
-  let city = document.querySelector("#search-input").value;
-  let apiKey = "9365a3e4de9e668a1c2509dfa8abe0d4";
-  let unit = "&units=imperial";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}${unit}`;
-  axios.get(apiUrl).then(showTemperature);
-}
-let button = document.querySelector("#search-form");
-button.addEventListener("submit", getTemperature);
 
 function showCurrentPosition(response) {
   let h1 = document.querySelector("h1");
@@ -116,6 +115,13 @@ function showFahrenheit(event) {
   celciusLink.classList.add("active");
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
+
+function search(city) {
+  let apiKey = "9365a3e4de9e668a1c2509dfa8abe0d4";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(showTemperature);
+}
+
 let fahrenheitTemperature = null;
 
 let celciusLink = document.querySelector("#celcius-link");
@@ -126,3 +132,5 @@ fahrenheitLink.addEventListener("click", showFahrenheit);
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", searchCity);
+
+search("Los Angeles");
