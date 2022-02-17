@@ -7,31 +7,35 @@ h1 {
   text-align: left;
   margin-top: 30px;
   text-transform: capitalize;
-  margin-left: 40px;
+  margin-left: 10px;
   color: rgb(70, 70, 70);
 }
 ul {
   list-style: none;
-  margin: 0 auto;
-  display: block;
   padding: 0;
+}
+.container {
+  width: 800px;
+  margin: 0;
+  margin-left: 20px;
 }
 .weather-app {
   width: 750px;
   margin: 0;
+  padding: 0;
 }
 .city-search {
   padding: 0;
   width: 750px;
 }
-.d-flex {
-  width: 60%;
-}
 .container-fluid.search {
   justify-content: start;
   padding: 0;
 }
-.btn-go {
+.d-flex {
+  width: 60%;
+}
+.search-button {
   border: #fa3d76 solid 2px;
   border-radius: 5px;
   background-color: #f65282;
@@ -40,13 +44,13 @@ ul {
   margin: 0 5px;
   box-shadow: 1px 3px 4px rgb(158, 156, 156);
 }
-.btn-go:hover {
+.search-button:hover {
   opacity: 0.8;
   color: white;
   border: #fa3d76 solid 2px;
   transition: ease-in-out 250ms;
 }
-.btn-pin {
+.location-button {
   padding: 5px 16px;
   margin: 0 5px;
   border: rgb(47, 233, 214) solid 2px;
@@ -55,7 +59,7 @@ ul {
   box-shadow: 1px 3px 4px rgb(158, 156, 156);
   border-radius: 5px;
 }
-.btn-pin:hover {
+.location-button:hover {
   opacity: 0.7;
   background: turquoise;
   border: turquoise solid 2px;
@@ -65,12 +69,12 @@ ul {
   border: solid rgb(189, 182, 182) 5px;
   border-radius: 25px;
   background: white;
-  width: 750px;
+  width: 700px;
   height: 500px;
 }
 .date {
   margin: 0 auto;
-  margin-left: 40px;
+  margin-left: 10px;
   padding: 0;
   text-align: left;
   color: #f65282;
@@ -80,12 +84,11 @@ ul {
 }
 .date-description {
   color: #a9a6c2;
-  margin-left: 40px;
+  margin-left: 10px;
 }
 .attributes {
   display: block;
-  margin-top: 10px;
-  margin-left: 135px;
+  margin-left: 120px;
   text-align: left;
   color: #a9a6c2;
 }
@@ -95,52 +98,36 @@ ul {
 }
 .temp-2 {
   font-size: 18px;
-  text-align: right;
-  margin-right: 20px;
+  margin-right: 0px;
   color: rgb(94, 93, 93);
-}
-.temp-container {
-  display: block;
-  margin: 0 auto;
-  width: 50%;
-  justify-content: right;
-  margin-right: 20px;
 }
 .main-temp {
   text-align: right;
-  margin-left: 20px;
   margin-top: -30px;
+
+  width: 200px;
 }
 .units {
-  margin-right: 20px;
+  margin-right: 0px;
 }
-.forcast-card {
-  margin-top: 100px;
-  margin-left: 5px;
-  padding: 0;
-}
-.img-card {
+.main-icon {
   display: block;
   margin: 0 auto;
   position: absolute;
   top: 90px;
-  left: 170px;
-  margin-left: 250px;
-  width: 200px;
-}
-.img {
-  width: 190px;
-  height: 190px;
+  left: 350px;
+  width: 175px;
+  height: 175px;
 }
 .box {
   width: 110px;
   height: 125px;
   border: solid turquoise;
-  padding: 1px;
-  margin: 0 5px;
   background: white;
-  float: left;
   text-align: center;
+  margin: 0 auto;
+  display: block;
+  padding: 2px;
 }
 .icon {
   width: 70px;
@@ -153,4 +140,10 @@ ul {
 }
 .active:hover {
   text-decoration: none;
+}
+.forcast-container {
+  display: inline-flex;
+  margin-top: 70px;
+  margin-left: 50px;
+  width: 700px;
 }

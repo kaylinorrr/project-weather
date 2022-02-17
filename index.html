@@ -4,9 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;700&family=Poppins:wght@300;400;600;700&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;700&family=Poppins:wght@300;400;600;700&family=Quicksand:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script
       src="https://kit.fontawesome.com/ba42c3ae33.js"
@@ -23,140 +26,93 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">        
-          <div class="row align-items-start">
-            <div class="col p-0">
-              <div class="card-body city-search">
-                <nav class="navbar navbar-light">
-                  <div class="container-fluid search">
-                    <a class="navbar-brand"></a>
-                    <form class="d-flex" id="search-form">
-                      <input
-                        class="form-control me-2"
-                        type="text"
-                        placeholder="search city"
-                        id="search-input"
-                      />
-                      <button
-                        class="btn btn-go"
-                        type="submit"
-                        id="submit-button"
-                      >
-                        go!
-                      </button>
-                      <button
-                        class="btn btn-pin"
-                        type="submit"
-                        id="button-addon1"
-                      >
-                        📍
-                      </button>
-                    </form>
-                  </div>
-                </nav>
-              </div>
-            </div>         
+      <div class="container weather-app">
+        <div class="row align-items-start">
+          <div class="col p-0">
+            <div class="card-body city-search">
+              <nav class="navbar navbar-light">
+                <div class="container-fluid search">
+                  <a class="navbar-brand"></a>
+                  <form class="d-flex" id="search-form">
+                    <input
+                      class="form-control me-2"
+                      type="text"
+                      placeholder="search city"
+                      id="search-input"
+                    />
+                    <button class="btn search-button" type="submit" id="submit-button">
+                      go!
+                    </button>
+                    <button
+                      class="btn location-button"
+                      type="submit"
+                      id="button-addon1"
+                    >
+                      📍
+                    </button>
+                  </form>
+                </div>
+              </nav>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="container base">
-        <div class="row">
-          <div class="col-6">
-            <h1>los angeles</h1>
-            <ul>
-              <li class="date-description" id="weather-description">cloudy</li>
-              <li class="date" id="date"></li>
-            </ul>
-          </div>
+      <div class="base">
+        <div class="container">
           <div class="row">
             <div class="col-6">
+              <h1 id="city">los angeles</h1>
+              <ul>
+                <li class="date-description" id="weather-description">
+                  cloudy
+                </li>
+                <li class="date" id="date"></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
               <ul class="attributes">
                 <li>humidity: <span class="pink" id="humidity">52</span>%</li>
                 <li>precipitation: <span class="pink">10%</span></li>
-                <li>sunrise: <span class="pink">6:53AM</span></li>
-                <li>sunset: <span class="pink">4:46PM</span></li>
+                <li>sunrise: <span class="pink" id="sunrise">6:53AM</span></li>
+                <li>sunset: <span class="pink" id="sunset">4:46PM</span></li>
               </ul>
             </div>
-            <div class="col-6">
-              <div class="temp-container.d-flex.justify-content-end">
-                <ul>
-                  <li class="main-temp">
-                    <span class="temp" id="main-temp"><strong>..</strong></span>
-                    <span class="units" id="units">
-                      <a href="#" id="fahrenheit-link" class="active">ºF</a> |
-                      <a href="#" id="celcius-link" class="active">ºC</a>
-                    </span>
-                  </li>
-                  <li class="temp-2" id="temp-2"> <strong>61º</strong>/46º</li>
-                </ul>
-                <div class="img-card">
-                  <img src="http://openweathermap.org/img/wn/10d@2x.png" alt=".." class="img" id="icon" />
-                </div>
-              </div>
+            <div class="col">
+              <ul class="main-temp">
+                <li>
+                  <span class="temp" id="main-temp"><strong>..</strong></span>
+                  <span class="units" id="units">
+                    <a href="#" id="fahrenheit-link" class="active">ºF</a> |
+                    <a href="#" id="celcius-link" class="active">ºC</a>
+                  </span>
+                </li>
+                <li class="temp-2">
+                  <span class="max-temp" id="max-temp"></span>º/<span id="min-temp"></span>º
+                </li>
+              </ul>
+              <img
+                src="http://openweathermap.org/img/wn/10d@2x.png"
+                alt=".."
+                class="main-icon"
+                id="icon"
+              />
             </div>
           </div>
-          <div class="forcast-card row">
-            <div class="col">
-              <div class="box">
-                <div class="forcast-day">Mon</div>
-                    <img src="http://openweathermap.org/img/wn/01d@2x.png" class="icon" alt=".." id="icon" />
-                <div class="forcast">
-                  <span class="daily-high" id="day-high-1"><strong>61º</strong></span>
-                  <span class="daily-low" id="day-low-1">/46º</span>
-                  </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="box">
-                <div class="forcast-day">Tues</div>               
-                  <img src="http://openweathermap.org/img/wn/10d@2x.png" class="icon" alt=".." id="icon" />               
-                <div class="forcast">
-                   <span class="daily-high" id="day-high-2"><strong>61º</strong></span>
-                   <span class="daily-low" id="day-low-2">/46º</span>
-                </div>
-                </div>
-            </div>
-            <div class="col">
-              <div class="box">
-                <div class="forcast-day">Wed</div>
-                  <img src="http://openweathermap.org/img/wn/02d@2x.png" class="icon" alt=".." id="icon" />
-                <div class="forcast">
-                   <span class="daily-high" id="day-high-3"><strong>61º</strong></span>
-                   <span class="daily-low" id="day-low-3">/46º</span>
-                </div>  
-              </div>
-            </div>
-            <div class="col">
-              <div class="box">
-                <div class="forcast-day">Thurs</div>
-                  <img src="http://openweathermap.org/img/wn/11n@2x.png" class="icon" alt=".." id="icon" />
-                  <div class="forcast">
-                     <span class="daily-high" id="day-high-4"><strong>61º</strong></span>
-                   <span class="daily-low" id="day-low-4">/46º</span>
-                  </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="box">
-                <div class="forcast-day">Fri</div>
-                  <img src="http://openweathermap.org/img/wn/10d@2x.png" class="icon" alt=".." id="icon" />
-                  <div class="forcast">
-                     <span class="daily-high" id="day-high-5"><strong>61º</strong></span>
-                     <span class="daily-low" id="day-low-5">/46º</span>
-                  </div>
-              </div>
-            </div>
           </div>
+          <div class="forcast-container" id="forcast"></div>
         </div>
-        </div>       
         <footer>
-          <a href="https://github.com/kaylinorrr/project-weather"target="_blank" 
-          >Open-Source Code</a
-        >
-        by Kaylin Orr
+          <a
+            href="https://github.com/kaylinorrr/project-weather"
+            target="_blank"
+            >Open-Source Code</a
+          >
+          by Kaylin Orr
         </footer>
       </div>
     </div>
     <script src="src/index.js"></script>
   </body>
 </html>
-
