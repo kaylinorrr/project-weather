@@ -32,7 +32,12 @@ function formatSunriseSunset(timestamp) {
   }
   return `${hours}:${minutes}`;
 }
-
+function formatForcast(timestamp) {
+  let date = new Date(timestamp);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  let day = days[date.getDay()];
+  return `${day}`;
+}
 function showTemperature(response) {
   console.log(response);
   let cityElement = document.querySelector("#city");
@@ -66,6 +71,7 @@ function showTemperature(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  getForcast(response.data.coord);
 }
 
 function showCurrentPosition(response) {
@@ -92,8 +98,6 @@ function showCurrentPosition(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
-
-  getForcast(response.data.coord);
 }
 function retrievePosition(position) {
   let apiKey = "9365a3e4de9e668a1c2509dfa8abe0d4";
@@ -124,25 +128,34 @@ function showFahrenheit(event) {
   celciusLink.classList.add("active");
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
-function displayForcast() {
+function displayForcast(response) {
+  console.log(response);
   let forcastElement = document.querySelector("#forcast");
   let forcastHTML = `<div class="row">`;
-  let days = ["Wed", "Thurs", "Fri", "Sat", "Sun"];
-  days.forEach(function (day) {
-    forcastHTML =
-      forcastHTML +
-      `<div class="col-2">
+  let forcast = response.data.daily;
+  forcast.forEach(function (forcastDay, index) {
+    if (index > 0 && index < 6) {
+      forcastHTML =
+        forcastHTML +
+        `<div class="col-2">
         <div class="box">
-          <div class="forcast-day">${day}</div>
-            <img src="http://openweathermap.org/img/wn/01d@2x.png" class="icon" alt=".." id="icon" />
+          <div class="forcast-day">${formatForcast(forcastDay.dt * 1000)}</div>
+            <img src="http://openweathermap.org/img/wn/${
+              forcastDay.weather[0].icon
+            }@2x.png" class="icon" alt=".." id="icon" />
               <div class="forcast">
-                <span class="daily-high" id="day-high-1"><strong>61º</strong></span>
-                <span class="daily-low" id="day-low-1">/46º</span>
+                <span class="daily-high" id="day-high-1"><strong>${Math.round(
+                  forcastDay.temp.max
+                )}º</strong></span>
+                <span class="daily-low" id="day-low-1">/${Math.round(
+                  forcastDay.temp.min
+                )}º</span>
                   </div>
               </div>
             </div>`;
-    forcastHTML = forcastHTML + `</div>`;
-    forcastElement.innerHTML = forcastHTML;
+      forcastHTML = forcastHTML + `</div>`;
+      forcastElement.innerHTML = forcastHTML;
+    }
   });
 }
 function getForcast(coordinates) {
@@ -180,5 +193,4 @@ positionButton.addEventListener("click", getCurrentPosition);
 let button = document.querySelector("#search-form");
 button.addEventListener("submit", search);
 
-displayForcast();
 search("Los Angeles");
