@@ -105,8 +105,10 @@ ul {
 .main-temp {
   text-align: right;
   margin-top: -30px;
-
   width: 200px;
+}
+.max-temp {
+  font-weight: 600;
 }
 .units {
   margin-right: 0px;
