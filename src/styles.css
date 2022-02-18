@@ -89,7 +89,7 @@ ul {
 }
 .attributes {
   display: block;
-  margin-left: 120px;
+  margin-left: 100px;
   text-align: left;
   color: #a9a6c2;
 }
@@ -105,7 +105,7 @@ ul {
 .main-temp {
   text-align: right;
   margin-top: -30px;
-  width: 200px;
+  width: 190px;
 }
 .max-temp {
   font-weight: 600;
