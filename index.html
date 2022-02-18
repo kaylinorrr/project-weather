@@ -22,7 +22,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="src/styles.css" />
-    <title>weather!</title>
+    <title>Weather Forecast</title>
   </head>
   <body>
     <div class="container">
@@ -61,11 +61,9 @@
         <div class="container">
           <div class="row">
             <div class="col-6">
-              <h1 id="city">los angeles</h1>
+              <h1 id="city"></h1>
               <ul>
-                <li class="date-description" id="weather-description">
-                  cloudy
-                </li>
+                <li class="date-description" id="weather-description"></li>
                 <li class="date" id="date"></li>
               </ul>
             </div>
@@ -73,10 +71,10 @@
           <div class="row">
             <div class="col">
               <ul class="attributes">
-                <li>humidity: <span class="pink" id="humidity">52</span>%</li>
-                <li>precipitation: <span class="pink">10%</span></li>
-                <li>sunrise: <span class="pink" id="sunrise">6:53AM</span></li>
-                <li>sunset: <span class="pink" id="sunset">4:46PM</span></li>
+                <li>humidity: <span class="pink" id="humidity"></span>%</li>
+                <li>wind: <span class="pink" id="wind"></span> m/h</li>
+                <li>sunrise: <span class="pink" id="sunrise"></span></li>
+                <li>sunset: <span class="pink" id="sunset"></span></li>
               </ul>
             </div>
             <div class="col">
@@ -89,7 +87,7 @@
                   </span>
                 </li>
                 <li class="temp-2">
-                  <span class="max-temp" id="max-temp"></span>º/<span id="min-temp"></span>º
+                  <span class="max-temp" id="max-temp"><strong></strong></span>º/<span id="min-temp"></span>º
                 </li>
               </ul>
               <img

@@ -24,6 +24,14 @@ ul {
   margin: 0;
   padding: 0;
 }
+.base {
+  margin: 0;
+  border: solid rgb(189, 182, 182) 5px;
+  border-radius: 25px;
+  background: white;
+  width: 680px;
+  height: 500px;
+}
 .city-search {
   padding: 0;
   width: 750px;
@@ -64,14 +72,7 @@ ul {
   background: turquoise;
   border: turquoise solid 2px;
 }
-.base {
-  margin: 0;
-  border: solid rgb(189, 182, 182) 5px;
-  border-radius: 25px;
-  background: white;
-  width: 700px;
-  height: 500px;
-}
+
 .date {
   margin: 0 auto;
   margin-left: 10px;

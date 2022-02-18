@@ -50,6 +50,7 @@ function showTemperature(response) {
   let sunriseElement = document.querySelector("#sunrise");
   let sunsetElement = document.querySelector("#sunset");
   let dateElement = document.querySelector("#date");
+  let windElement = document.querySelector("#wind");
 
   fahrenheitTemperature = response.data.main.temp;
 
@@ -59,6 +60,7 @@ function showTemperature(response) {
   maxTemp.innerHTML = Math.round(response.data.main.temp_max);
   currentCondition.innerHTML = response.data.weather[0].description;
   humidElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
   sunriseElement.innerHTML = formatSunriseSunset(
     response.data.sys.sunrise * 1000
   );
@@ -83,7 +85,7 @@ function showCurrentPosition(response) {
   let iconElement = document.querySelector("#icon");
   let humidElement = document.querySelector("#humidity");
   let dateElement = document.querySelector("#date");
-
+  let windElement = document.querySelector("#wind");
   fahrenheitTemperature = response.data.main.temp;
 
   cityElement.innerHTML = response.data.name;
@@ -98,6 +100,7 @@ function showCurrentPosition(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  windElement.innerHTML = Math.round(response.data.wind.speed);
 }
 function retrievePosition(position) {
   let apiKey = "9365a3e4de9e668a1c2509dfa8abe0d4";
