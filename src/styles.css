@@ -1,13 +1,24 @@
 body {
   font-family: "Poppins", sans-serif;
-  background: rgb(232, 227, 245);
+  background-color: rgba(71, 190, 245, 0.5);
   width: 100%;
+}
+body::before {
+  content: "";
+  background-image: url(../images/weather-backrnd.jpg);
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
 }
 h1 {
   text-align: left;
   margin-top: 30px;
   text-transform: capitalize;
-  margin-left: 10px;
+  margin-left: 40px;
   color: rgb(70, 70, 70);
 }
 ul {
@@ -15,7 +26,6 @@ ul {
   padding: 0;
 }
 .container {
-  width: 800px;
   margin: 0;
   margin-left: 20px;
 }
@@ -24,13 +34,14 @@ ul {
   margin: 0;
   padding: 0;
 }
-.base {
+.card-base {
   margin: 0;
   border: solid rgb(189, 182, 182) 5px;
   border-radius: 25px;
   background: white;
   width: 680px;
   height: 500px;
+  padding-left: 10px;
 }
 .city-search {
   padding: 0;
@@ -75,7 +86,7 @@ ul {
 
 .date {
   margin: 0 auto;
-  margin-left: 10px;
+  margin-left: 40px;
   padding: 0;
   text-align: left;
   color: #f65282;
@@ -85,11 +96,11 @@ ul {
 }
 .date-description {
   color: #a9a6c2;
-  margin-left: 10px;
+  margin-left: 40px;
 }
 .attributes {
   display: block;
-  margin-left: 100px;
+  margin-left: 150px;
   text-align: left;
   color: #a9a6c2;
 }
@@ -104,8 +115,8 @@ ul {
 }
 .main-temp {
   text-align: right;
-  margin-top: -30px;
-  width: 190px;
+  margin-top: -40px;
+  width: 250px;
 }
 .max-temp {
   font-weight: 600;
@@ -117,8 +128,8 @@ ul {
   display: block;
   margin: 0 auto;
   position: absolute;
-  top: 90px;
-  left: 350px;
+  top: 100px;
+  left: 330px;
   width: 175px;
   height: 175px;
 }
@@ -135,6 +146,7 @@ ul {
 .icon {
   width: 70px;
   height: 70px;
+  padding-bottom: 5px;
 }
 .active {
   text-decoration: none;
@@ -147,6 +159,6 @@ ul {
 .forcast-container {
   display: inline-flex;
   margin-top: 70px;
-  margin-left: 50px;
+  margin-left: 45px;
   width: 700px;
 }

@@ -25,79 +25,84 @@
     <title>Weather Forecast</title>
   </head>
   <body>
-    <div class="container">
-      <div class="container weather-app">
-        <div class="row align-items-start">
-          <div class="col p-0">
-            <div class="card-body city-search">
-              <nav class="navbar navbar-light">
-                <div class="container-fluid search">
-                  <a class="navbar-brand"></a>
-                  <form class="d-flex" id="search-form">
-                    <input
-                      class="form-control me-2"
-                      type="text"
-                      placeholder="search city"
-                      id="search-input"
-                    />
-                    <button class="btn search-button" type="submit" id="submit-button">
-                      go!
-                    </button>
-                    <button
-                      class="btn location-button"
-                      type="submit"
-                      id="button-addon1"
-                    >
-                      📍
-                    </button>
-                  </form>
-                </div>
-              </nav>
+      <div class="container">
+        <div class="container weather-app">
+          <div class="row align-items-start">
+            <div class="col p-0">
+              <div class="card-body city-search">
+                <nav class="navbar navbar-light">
+                  <div class="container-fluid search">
+                    <a class="navbar-brand"></a>
+                    <form class="d-flex" id="search-form">
+                      <input
+                        class="form-control me-2"
+                        type="text"
+                        placeholder="search city"
+                        id="search-input"
+                      />
+                      <button
+                        class="btn search-button"
+                        type="submit"
+                        id="submit-button"
+                      >
+                        go!
+                      </button>
+                      <button
+                        class="btn location-button"
+                        type="submit"
+                        id="button-addon1"
+                      >
+                        📍
+                      </button>
+                    </form>
+                  </div>
+                </nav>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="base">
-        <div class="container">
-          <div class="row">
-            <div class="col-6">
-              <h1 id="city"></h1>
-              <ul>
-                <li class="date-description" id="weather-description"></li>
-                <li class="date" id="date"></li>
-              </ul>
+        <div class="card-base">
+          <div class="container-main">
+            <div class="row">
+              <div class="col-6">
+                <h1 id="city"></h1>
+                <ul>
+                  <li class="date-description" id="weather-description"></li>
+                  <li class="date" id="date"></li>
+                </ul>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <ul class="attributes">
-                <li>humidity: <span class="pink" id="humidity"></span>%</li>
-                <li>wind: <span class="pink" id="wind"></span> m/h</li>
-                <li>sunrise: <span class="pink" id="sunrise"></span></li>
-                <li>sunset: <span class="pink" id="sunset"></span></li>
-              </ul>
+            <div class="row">
+              <div class="col">
+                <ul class="attributes">
+                  <li>humidity: <span class="pink" id="humidity"></span>%</li>
+                  <li>wind: <span class="pink" id="wind"></span> m/h</li>
+                  <li>sunrise: <span class="pink" id="sunrise"></span></li>
+                  <li>sunset: <span class="pink" id="sunset"></span></li>
+                </ul>
+              </div>
+              <div class="col">
+                <ul class="main-temp">
+                  <li>
+                    <span class="temp" id="main-temp"><strong>..</strong></span>
+                    <span class="units" id="units">
+                      <a href="#" id="fahrenheit-link" class="active">ºF</a> |
+                      <a href="#" id="celcius-link" class="active">ºC</a>
+                    </span>
+                  </li>
+                  <li class="temp-2">
+                    <span class="max-temp" id="max-temp"><strong></strong></span
+                    >º/<span id="min-temp"></span>º
+                  </li>
+                </ul>
+                <img
+                  src="http://openweathermap.org/img/wn/10d@2x.png"
+                  alt=".."
+                  class="main-icon"
+                  id="icon"
+                />
+              </div>
             </div>
-            <div class="col">
-              <ul class="main-temp">
-                <li>
-                  <span class="temp" id="main-temp"><strong>..</strong></span>
-                  <span class="units" id="units">
-                    <a href="#" id="fahrenheit-link" class="active">ºF</a> |
-                    <a href="#" id="celcius-link" class="active">ºC</a>
-                  </span>
-                </li>
-                <li class="temp-2">
-                  <span class="max-temp" id="max-temp"><strong></strong></span>º/<span id="min-temp"></span>º
-                </li>
-              </ul>
-              <img
-                src="http://openweathermap.org/img/wn/10d@2x.png"
-                alt=".."
-                class="main-icon"
-                id="icon"
-              />
-            </div>
-          </div>
           </div>
           <div class="forcast-container" id="forcast"></div>
         </div>
