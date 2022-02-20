@@ -1,6 +1,6 @@
 function formatDate(timestamp) {
   let date = new Date(timestamp);
-  let hours = date.getHours();
+  let hours = date.getHours() % 12 || 12;
   if (hours < 10) {
     hours = `0${hours}`;
   }
@@ -18,11 +18,13 @@ function formatDate(timestamp) {
     "saturday",
   ];
   let day = days[date.getDay()];
-  return `${day} ${hours}:${minutes}`;
+  let ampm = date.getHours() < 12 ? "AM" : "PM";
+  return `${day} ${hours}:${minutes} ${ampm}`;
 }
 function formatSunriseSunset(timestamp) {
   let date = new Date(timestamp);
-  let hours = date.getHours();
+  let hours = date.getHours() % 12 || 12;
+  let ampm = date.getHours() < 12 ? "AM" : "PM";
   if (hours < 10) {
     hours = `0${hours}`;
   }
@@ -30,7 +32,7 @@ function formatSunriseSunset(timestamp) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  return `${hours}:${minutes}`;
+  return `${hours}:${minutes} ${ampm}`;
 }
 function formatForcast(timestamp) {
   let date = new Date(timestamp);
