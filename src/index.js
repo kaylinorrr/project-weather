@@ -1,9 +1,7 @@
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours() % 12 || 12;
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
+
   let minutes = date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
@@ -25,9 +23,7 @@ function formatSunriseSunset(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours() % 12 || 12;
   let ampm = date.getHours() < 12 ? "AM" : "PM";
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
+
   let minutes = date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
@@ -41,7 +37,6 @@ function formatForcast(timestamp) {
   return `${day}`;
 }
 function showTemperature(response) {
-  console.log(response);
   let cityElement = document.querySelector("#city");
   let mainTemp = document.querySelector("#main-temp");
   let minTemp = document.querySelector("#min-temp");
@@ -55,6 +50,8 @@ function showTemperature(response) {
   let windElement = document.querySelector("#wind");
 
   fahrenheitTemperature = response.data.main.temp;
+  fahrMinTemp = response.data.main.temp_min;
+  fahrMaxTemp = response.data.main.temp_max;
 
   cityElement.innerHTML = response.data.name;
   mainTemp.innerHTML = Math.round(response.data.main.temp);
@@ -120,24 +117,38 @@ function getCurrentPosition() {
 function showCelcius(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#main-temp");
+  let minTemperature = document.querySelector("#min-temp");
+  let maxTemperature = document.querySelector("#max-temp");
+  let minForcast = document.querySelector("#day-low");
   fahrenheitLink.classList.add("active");
   celciusLink.classList.remove("active");
   let celciusTemperature = Math.round((fahrenheitTemperature - 32) / 1.8);
+  let celciusMin = Math.round((fahrMinTemp - 32) / 1.8);
+  let celciusMax = Math.round((fahrMaxTemp - 32) / 1.8);
+  let forcastMin = Math.round((forcastCelMin - 32) / 1.8);
   temperatureElement.innerHTML = Math.round(celciusTemperature);
+  minTemperature.innerHTML = Math.round(celciusMin);
+  maxTemperature.innerHTML = Math.round(celciusMax);
+  minForcast.innerHTML = Math.round(forcastMin);
 }
 
 function showFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#main-temp");
+  let minTemperature = document.querySelector("#min-temp");
+  let maxTemperature = document.querySelector("#max-temp");
   fahrenheitLink.classList.remove("active");
   celciusLink.classList.add("active");
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+  minTemperature.innerHTML = Math.round(fahrMinTemp);
+  maxTemperature.innerHTML = Math.round(fahrMaxTemp);
 }
+
 function displayForcast(response) {
-  console.log(response);
   let forcastElement = document.querySelector("#forcast");
   let forcastHTML = `<div class="row">`;
   let forcast = response.data.daily;
+
   forcast.forEach(function (forcastDay, index) {
     if (index > 0 && index < 6) {
       forcastHTML =
@@ -149,10 +160,10 @@ function displayForcast(response) {
               forcastDay.weather[0].icon
             }@2x.png" class="icon" alt=".." id="icon" />
               <div class="forcast">
-                <span class="daily-high" id="day-high-1"><strong>${Math.round(
+                <span class="daily-high" id="day-high"><strong>${Math.round(
                   forcastDay.temp.max
                 )}º</strong></span>
-                <span class="daily-low" id="day-low-1">/${Math.round(
+                <span class="daily-low" id="day-low">/${Math.round(
                   forcastDay.temp.min
                 )}º</span>
                   </div>
@@ -160,6 +171,7 @@ function displayForcast(response) {
             </div>`;
       forcastHTML = forcastHTML + `</div>`;
       forcastElement.innerHTML = forcastHTML;
+      forcastCelMin = forcastDay.temp.min;
     }
   });
 }
@@ -180,7 +192,8 @@ function searchCity(event) {
   let searchElement = document.querySelector("#search-input");
   search(searchElement.value);
 }
-
+let forcastCelMin = null;
+let forcast = null;
 let fahrenheitTemperature = null;
 
 let celciusLink = document.querySelector("#celcius-link");

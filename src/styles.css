@@ -6,7 +6,7 @@ body {
 body::before {
   content: "";
   background-image: url(../images/weather-backrnd.jpg);
-  opacity: 0.5;
+  opacity: 0.6;
   top: 0;
   left: 0;
   bottom: 0;
@@ -36,7 +36,7 @@ ul {
 }
 .card-base {
   margin: 0;
-  border: solid rgb(189, 182, 182) 5px;
+  border: solid rgba(24, 18, 110, 0.705) 5px;
   border-radius: 25px;
   background: white;
   width: 680px;
@@ -90,6 +90,7 @@ ul {
   padding: 0;
   text-align: left;
   color: #f65282;
+  text-transform: capitalize;
 }
 .pink {
   color: #f65282;
@@ -97,16 +98,18 @@ ul {
 .date-description {
   color: #a9a6c2;
   margin-left: 40px;
+  text-transform: capitalize;
 }
 .attributes {
   display: block;
-  margin-left: 150px;
+  margin-left: 160px;
   text-align: left;
   color: #a9a6c2;
 }
 .temp {
-  font-size: 62px;
+  font-size: 63px;
   font-weight: 500;
+  color: rgb(70, 70, 70);
 }
 .temp-2 {
   font-size: 18px;
@@ -132,21 +135,26 @@ ul {
   left: 330px;
   width: 175px;
   height: 175px;
+  filter: saturate(2);
+  filter: drop-shadow(0 0 0.5rem rgb(117, 115, 116));
 }
 .box {
-  width: 110px;
+  width: 115px;
   height: 125px;
-  border: solid turquoise;
+  border: solid rgba(64, 224, 208, 0.651);
   background: white;
   text-align: center;
   margin: 0 auto;
   display: block;
   padding: 2px;
+  font-size: 16px;
 }
 .icon {
   width: 70px;
   height: 70px;
   padding-bottom: 5px;
+  filter: saturate(2.5);
+  filter: drop-shadow(0 0 0.5rem rgb(117, 115, 116));
 }
 .active {
   text-decoration: none;
@@ -159,6 +167,6 @@ ul {
 .forcast-container {
   display: inline-flex;
   margin-top: 70px;
-  margin-left: 45px;
-  width: 700px;
+  margin-left: 20px;
+  width: 750px;
 }
