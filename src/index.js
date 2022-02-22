@@ -49,10 +49,6 @@ function showTemperature(response) {
   let dateElement = document.querySelector("#date");
   let windElement = document.querySelector("#wind");
 
-  fahrenheitTemperature = response.data.main.temp;
-  fahrMinTemp = response.data.main.temp_min;
-  fahrMaxTemp = response.data.main.temp_max;
-
   cityElement.innerHTML = response.data.name;
   mainTemp.innerHTML = Math.round(response.data.main.temp);
   minTemp.innerHTML = Math.round(response.data.main.temp_min);
@@ -85,7 +81,6 @@ function showCurrentPosition(response) {
   let humidElement = document.querySelector("#humidity");
   let dateElement = document.querySelector("#date");
   let windElement = document.querySelector("#wind");
-  fahrenheitTemperature = response.data.main.temp;
 
   cityElement.innerHTML = response.data.name;
   mainTemp.innerHTML = Math.round(response.data.main.temp);
@@ -114,36 +109,6 @@ function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
 
-function showCelcius(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#main-temp");
-  let minTemperature = document.querySelector("#min-temp");
-  let maxTemperature = document.querySelector("#max-temp");
-  let minForcast = document.querySelector("#day-low");
-  fahrenheitLink.classList.add("active");
-  celciusLink.classList.remove("active");
-  let celciusTemperature = Math.round((fahrenheitTemperature - 32) / 1.8);
-  let celciusMin = Math.round((fahrMinTemp - 32) / 1.8);
-  let celciusMax = Math.round((fahrMaxTemp - 32) / 1.8);
-  let forcastMin = Math.round((forcastCelMin - 32) / 1.8);
-  temperatureElement.innerHTML = Math.round(celciusTemperature);
-  minTemperature.innerHTML = Math.round(celciusMin);
-  maxTemperature.innerHTML = Math.round(celciusMax);
-  minForcast.innerHTML = Math.round(forcastMin);
-}
-
-function showFahrenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#main-temp");
-  let minTemperature = document.querySelector("#min-temp");
-  let maxTemperature = document.querySelector("#max-temp");
-  fahrenheitLink.classList.remove("active");
-  celciusLink.classList.add("active");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-  minTemperature.innerHTML = Math.round(fahrMinTemp);
-  maxTemperature.innerHTML = Math.round(fahrMaxTemp);
-}
-
 function displayForcast(response) {
   let forcastElement = document.querySelector("#forcast");
   let forcastHTML = `<div class="row">`;
@@ -155,7 +120,9 @@ function displayForcast(response) {
         forcastHTML +
         `<div class="col-2">
         <div class="box">
-          <div class="forcast-day">${formatForcast(forcastDay.dt * 1000)}</div>
+          <div class="forcast-day"><strong>${formatForcast(
+            forcastDay.dt * 1000
+          )}</strong></div>
             <img src="http://openweathermap.org/img/wn/${
               forcastDay.weather[0].icon
             }@2x.png" class="icon" alt=".." id="icon" />
@@ -171,7 +138,6 @@ function displayForcast(response) {
             </div>`;
       forcastHTML = forcastHTML + `</div>`;
       forcastElement.innerHTML = forcastHTML;
-      forcastCelMin = forcastDay.temp.min;
     }
   });
 }
@@ -192,15 +158,8 @@ function searchCity(event) {
   let searchElement = document.querySelector("#search-input");
   search(searchElement.value);
 }
-let forcastCelMin = null;
+
 let forcast = null;
-let fahrenheitTemperature = null;
-
-let celciusLink = document.querySelector("#celcius-link");
-celciusLink.addEventListener("click", showCelcius);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", showFahrenheit);
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", searchCity);

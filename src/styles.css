@@ -18,13 +18,15 @@ h1 {
   text-align: left;
   margin-top: 30px;
   text-transform: capitalize;
-  margin-left: 40px;
+  margin-left: 30px;
   color: rgb(70, 70, 70);
+  max-width: none;
 }
 ul {
   list-style: none;
   padding: 0;
 }
+
 .container {
   margin: 0;
   margin-left: 20px;
@@ -36,11 +38,11 @@ ul {
 }
 .card-base {
   margin: 0;
-  border: solid rgba(24, 18, 110, 0.705) 5px;
-  border-radius: 25px;
+  border: solid rgba(24, 18, 110, 0.781) 5px;
+  border-radius: 20px;
   background: white;
-  width: 680px;
-  height: 500px;
+  width: 665px;
+  height: 460px;
   padding-left: 10px;
 }
 .city-search {
@@ -86,7 +88,7 @@ ul {
 
 .date {
   margin: 0 auto;
-  margin-left: 40px;
+  margin-left: 30px;
   padding: 0;
   text-align: left;
   color: #f65282;
@@ -97,7 +99,7 @@ ul {
 }
 .date-description {
   color: #a9a6c2;
-  margin-left: 40px;
+  margin-left: 30px;
   text-transform: capitalize;
 }
 .attributes {
@@ -105,6 +107,7 @@ ul {
   margin-left: 160px;
   text-align: left;
   color: #a9a6c2;
+  font-size: 15px;
 }
 .temp {
   font-size: 63px;
@@ -118,14 +121,14 @@ ul {
 }
 .main-temp {
   text-align: right;
-  margin-top: -40px;
+  margin-top: -60px;
   width: 250px;
 }
 .max-temp {
   font-weight: 600;
 }
-.units {
-  margin-right: 0px;
+.unit {
+  font-size: 20px;
 }
 .main-icon {
   display: block;
@@ -135,8 +138,8 @@ ul {
   left: 330px;
   width: 175px;
   height: 175px;
-  filter: saturate(2);
-  filter: drop-shadow(0 0 0.5rem rgb(117, 115, 116));
+  filter: saturate(5);
+  filter: drop-shadow(0 0 0.5rem rgba(56, 55, 55, 0.616));
 }
 .box {
   width: 115px;
@@ -154,19 +157,12 @@ ul {
   height: 70px;
   padding-bottom: 5px;
   filter: saturate(2.5);
-  filter: drop-shadow(0 0 0.5rem rgb(117, 115, 116));
+  filter: drop-shadow(0 0 0.5rem rgba(131, 129, 130, 0.815));
 }
-.active {
-  text-decoration: none;
-  color: black;
-  cursor: default;
-}
-.active:hover {
-  text-decoration: none;
-}
+
 .forcast-container {
   display: inline-flex;
-  margin-top: 70px;
-  margin-left: 20px;
+  margin-top: 35px;
+  margin-left: 15px;
   width: 750px;
 }
