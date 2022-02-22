@@ -95,6 +95,7 @@ function showCurrentPosition(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
   windElement.innerHTML = Math.round(response.data.wind.speed);
+  getForcast(response.data.coord);
 }
 function retrievePosition(position) {
   let apiKey = "9365a3e4de9e668a1c2509dfa8abe0d4";
@@ -105,7 +106,8 @@ function retrievePosition(position) {
   axios.get(url).then(showCurrentPosition);
 }
 
-function getCurrentPosition() {
+function getCurrentPosition(event) {
+  event.preventDefault();
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
 
@@ -166,8 +168,5 @@ form.addEventListener("submit", searchCity);
 
 let positionButton = document.querySelector("#button-addon1");
 positionButton.addEventListener("click", getCurrentPosition);
-
-let button = document.querySelector("#search-form");
-button.addEventListener("submit", search);
 
 search("Los Angeles");
