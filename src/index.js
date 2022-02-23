@@ -37,6 +37,7 @@ function formatForcast(timestamp) {
   return `${day}`;
 }
 function showTemperature(response) {
+  console.log(response);
   let cityElement = document.querySelector("#city");
   let mainTemp = document.querySelector("#main-temp");
   let minTemp = document.querySelector("#min-temp");
@@ -81,6 +82,8 @@ function showCurrentPosition(response) {
   let humidElement = document.querySelector("#humidity");
   let dateElement = document.querySelector("#date");
   let windElement = document.querySelector("#wind");
+  let sunriseElement = document.querySelector("#sunrise");
+  let sunsetElement = document.querySelector("#sunset");
 
   cityElement.innerHTML = response.data.name;
   mainTemp.innerHTML = Math.round(response.data.main.temp);
@@ -95,6 +98,12 @@ function showCurrentPosition(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
   windElement.innerHTML = Math.round(response.data.wind.speed);
+  sunriseElement.innerHTML = formatSunriseSunset(
+    response.data.sys.sunrise * 1000
+  );
+  sunsetElement.innerHTML = formatSunriseSunset(
+    response.data.sys.sunset * 1000
+  );
   getForcast(response.data.coord);
 }
 function retrievePosition(position) {
@@ -112,10 +121,11 @@ function getCurrentPosition(event) {
 }
 
 function displayForcast(response) {
+  console.log(response);
   let forcastElement = document.querySelector("#forcast");
   let forcastHTML = `<div class="row">`;
   let forcast = response.data.daily;
-
+  timezone = response.data.timezone_offset;
   forcast.forEach(function (forcastDay, index) {
     if (index > 0 && index < 6) {
       forcastHTML =
@@ -162,6 +172,7 @@ function searchCity(event) {
 }
 
 let forcast = null;
+let timezone = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", searchCity);
